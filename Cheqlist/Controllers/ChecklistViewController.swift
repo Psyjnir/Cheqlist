@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ChecklistViewController: UITableViewController {
+protocol ChecklistDelegate {
+	func reloadData()
+}
+
+class ChecklistViewController: UITableViewController, ChecklistDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -24,6 +28,11 @@ class ChecklistViewController: UITableViewController {
 	
 	@objc func addNewTaskToChecklist() {
 		let taskEntryController = TaskDataEntryController()
+		taskEntryController.delegate = self
 		navigationController?.pushViewController(taskEntryController, animated: true)
+	}
+	
+	func reloadData() {
+		tableView.reloadData()
 	}
 }
