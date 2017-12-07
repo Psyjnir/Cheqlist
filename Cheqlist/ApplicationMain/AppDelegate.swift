@@ -14,9 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 
-
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		// Override point for customization after application launch.
+		// Set up our default application window
+		window = UIWindow(frame: UIScreen.main.bounds)
+		
+		// Initialize, set, and display our root view controller
+		let rootController = RootViewController()
+		window?.rootViewController = rootController
+		window?.makeKeyAndVisible()
+		
 		return true
 	}
 
