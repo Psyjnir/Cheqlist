@@ -8,11 +8,12 @@
 
 import UIKit
 
-class RootViewController: UITableViewController {
-
+class RootViewController: UINavigationController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
+		
+		let vc = ChecklistViewController()
+		pushViewController(vc, animated: false)
 	}
 
 	override func didReceiveMemoryWarning() {
